@@ -10,9 +10,11 @@ public class PlayerCam : MonoBehaviour
     public float sensX;
     public float sensY;
     public float RoateCamSpeed;
-
+    [Header("Transforms")]
     public Transform PlayerBody;
 
+    [Header("Scripts")]
+    public PlayerController PController;
     float xRotation;
     float yRotation;
 
@@ -43,8 +45,15 @@ public class PlayerCam : MonoBehaviour
         //Player input
         if(Input.GetKey(KeyCode.C))
             PlayerRotateCamera();
+
         if(Input.GetKeyUp(KeyCode.C))
+        {
             this.transform.DORotate(new Vector3(0f, 0f, 0f), RoateCamSpeed, RotateMode.Fast);
+            PController.Speed = 12f;
+        }
+            
+
+
         
     }
     /// <summary>
@@ -54,8 +63,9 @@ public class PlayerCam : MonoBehaviour
     {
         yRotation = Mathf.Clamp(yRotation, 0f, 0f);
 
-        //The vectors are the angle of when the player turns theyre head.
-        this.transform.DORotate(new Vector3(20f, -180f, 0f), RoateCamSpeed, RotateMode.Fast);
+        PController.Speed = 0f;
+        
+        this.transform.DORotate(new Vector3(20f, -180f, 0f), RoateCamSpeed, RotateMode.Fast);//The vectors are the angle of when the player turns theyre head.
         Debug.Log("I work");
     }
 }

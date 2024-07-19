@@ -739,6 +739,7 @@ MonoBehaviour:
   sensY: 90
   RoateCamSpeed: 1.5
   PlayerBody: {fileID: 1392923255}
+  PController: {fileID: 1392923257}
 --- !u!1 &993900351
 GameObject:
   m_ObjectHideFlags: 0
