@@ -12,6 +12,8 @@ public class PlayerSpeedController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         CheckGroundTagAndSet(other);
+        GetComponent<TerrainGenerator>().GenerateNewTerrain();
+        Debug.Log("generate new terrain");
     }
     /// <summary>
     /// Check when the player hits the ground, what layer the player is running on, then changes the speed of the player.
