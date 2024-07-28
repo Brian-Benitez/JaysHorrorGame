@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
 {
+    [Header("Transforms")]
     public Transform SpawnPoint;
-    public List<GameObject> Terrains;
+    public List<Transform> Terrains;
+
+    [Header("Vars")]
+    public int TerrainIndex;
 
     public void GenerateNewTerrain()
     {
-        //Not sure if we wanna randomly pick a terrain to pick.
-        Instantiate(Terrains[0], SpawnPoint);
+       Transform objectS = Instantiate(Terrains[0], SpawnPoint);
+        Debug.Log("ahh");
     }
 }
