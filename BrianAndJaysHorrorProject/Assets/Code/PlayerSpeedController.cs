@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class PlayerSpeedController : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class PlayerSpeedController : MonoBehaviour
     private void CheckGroundTagAndSet(Collider groundCollider)
     {
         CheckTerrainAngles();
+        Debug.Log("checkl this");
 
         if (groundCollider.gameObject.CompareTag("Ground"))
             GetComponent<PlayerController>().Speed = VineSurfaceFastSpeed;
@@ -43,13 +45,14 @@ public class PlayerSpeedController : MonoBehaviour
     //I can do this a bit better below...
     private void CheckTerrainAngles()
     {
+        Debug.Log("look " + Generator.Terrains[0].transform.rotation.eulerAngles.x);
         if (Generator.Terrains[0].transform.rotation.eulerAngles.x == FlatSlope)
             Debug.Log("Skibiibi");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x == EasySlope)
+        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= EasySlope && Generator.Terrains[0].transform.rotation.eulerAngles.x < IntermidSlope)
             Debug.Log("HAHAHA");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x == IntermidSlope)
+        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= IntermidSlope && Generator.Terrains[0].transform.rotation.eulerAngles.x < HardSlope)
             Debug.Log("offf");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x == HardSlope)
+        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= HardSlope)
             Debug.Log("oh no");
     }
 }

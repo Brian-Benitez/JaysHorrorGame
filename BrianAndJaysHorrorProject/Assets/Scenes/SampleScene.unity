@@ -522,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555331550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -84.94, y: 0.97, z: -125.08}
+  m_LocalPosition: {x: -84.94, y: -13.16, z: -125.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -850,7 +850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoint: {fileID: 357655069}
   Terrains:
-  - {fileID: 1057841303}
+  - {fileID: 1057841309}
+  TerrainIndex: 0
 --- !u!4 &840351668
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,15 +1316,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057841303}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -109.97083, y: 0, z: -149.9854}
+  m_LocalRotation: {x: 0, y: 0.9659258, z: -0.2588191, w: 0}
+  m_LocalPosition: {x: -59.24, y: 30.2, z: -65.7}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 357655069}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 180, z: 0}
 --- !u!65 &1057841310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1367,7 +1368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392923254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.026, z: 0}
+  m_LocalPosition: {x: 0, y: 27.2, z: 29.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1497,6 +1498,10 @@ MonoBehaviour:
   VineSurfaceFastSpeed: 12
   RoughSurfaceNormalSpeed: 8
   SmoothSurfaceSlowestSpeed: 6
+  FlatSlope: 0
+  EasySlope: 30
+  IntermidSlope: 60
+  HardSlope: 90
   Generator: {fileID: 840351667}
 --- !u!43 &1452886767
 Mesh:
