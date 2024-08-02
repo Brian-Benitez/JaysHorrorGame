@@ -25,7 +25,6 @@ public class PlayerSpeedController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         CheckGroundTagAndSet(other);
-        //Generator.GenerateNewTerrain(); This works but I need to work on this more later!
     }
     /// <summary>
     /// Check when the player hits the ground, what layer the player is running on, then changes the speed of the player.
@@ -42,7 +41,9 @@ public class PlayerSpeedController : MonoBehaviour
             GetComponent<PlayerController>().Speed = SmoothSurfaceSlowestSpeed;
         //^Trying this out, seeing if it will impact performance, if does, just going to ref the script instead of get component.
     }
-    //I can do this a bit better below...
+    /// <summary>
+    /// This checks on what the angle of the plane is, and to change the players velocity
+    /// </summary>
     private void CheckTerrainAngles()
     {
         Debug.Log("look " + Generator.Terrains[0].transform.rotation.eulerAngles.x);

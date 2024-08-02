@@ -5,15 +5,23 @@ using UnityEngine;
 public class TerrainGenerator : MonoBehaviour
 {
     [Header("Transforms")]
-    public Transform SpawnPoint;
-    public List<Transform> Terrains;
+    public List<GameObject> Terrains;
 
-    [Header("Vars")]
-    public int TerrainIndex;
+    public float SpaceZ = 2.0f;
+    public bool IsPressed = false;
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R) && !IsPressed)
+            GenerateNewTerrain();
+        IsPressed = false;
+    }
 
     public void GenerateNewTerrain()
     {
-       Transform objectS = Instantiate(Terrains[0], SpawnPoint);
-        Debug.Log("ahh");
+        IsPressed = true;   
+        GameObject SecondTerrain = Instantiate<GameObject>(Terrains[0]);
+        SecondTerrain.transform.position = Terrains[0].transform.position + Terrains[0].transform.forward * SpaceZ;
+        Debug.Log("spawn new terrain");
     }
 }
