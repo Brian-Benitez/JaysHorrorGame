@@ -7,15 +7,22 @@ using UnityEngine.Assertions.Must;
 public class PlayerSpeedController : MonoBehaviour
 {
     [Header("Speeds")]
+    [SerializeField]
     public int VineSurfaceFastSpeed;
+    [SerializeField]
     public int RoughSurfaceNormalSpeed;
+    [SerializeField]
     public int SmoothSurfaceSlowestSpeed;
     //Add more here..
 
     [Header("Angles of Slopes")]
+    [SerializeField]
     public float FlatSlope = 0f;
+    [SerializeField]
     public float EasySlope = 30f;
+    [SerializeField]
     public float IntermidSlope = 60f;
+    [SerializeField]
     public float HardSlope = 90f;
 
     [Header("Scripts")]
@@ -33,7 +40,6 @@ public class PlayerSpeedController : MonoBehaviour
     private void CheckGroundTagAndSet(Collider groundCollider)
     {
         CheckTerrainAngles();
-        Debug.Log("checkl this");
 
         if (groundCollider.gameObject.CompareTag("Ground"))
             GetComponent<PlayerController>().Speed = VineSurfaceFastSpeed;

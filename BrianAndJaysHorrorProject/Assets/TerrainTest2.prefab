@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8583653634534977390}
   - component: {fileID: 8583653634534977391}
   - component: {fileID: 8583653634534977392}
+  - component: {fileID: 7788628080248761172}
   m_Layer: 3
   m_Name: TerrainTest2Child1
   m_TagString: Untagged
@@ -354,6 +355,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.991844, y: 1.1818708, z: 9.988892}
   m_Center: {x: 4.9959183, y: 0.70374924, z: 4.994446}
+--- !u!114 &7788628080248761172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8583653634534977394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15281b355a9cd634d929a65f6493566d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8583653635755124746
 GameObject:
   m_ObjectHideFlags: 0

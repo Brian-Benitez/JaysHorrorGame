@@ -22,18 +22,25 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
 
     private void Update()
     {
+        /*
         if (Input.GetKeyUp(KeyCode.R) && !IsPressed)
             GenerateNewTerrain();
         IsPressed = false;
+        */
     }
-    private void SetCloneToMainObject()
+    /// <summary>
+    /// This adds a new terrain to the terrain list and removes the old one.
+    /// </summary>
+    /// <param name="NewGameObject"></param>
+    private void AddingNewTerrainToList(GameObject NewGameObject)
     {
-
+        Terrains.Remove(Terrains[0]);
+        Terrains.Add(NewGameObject);
     }
 
     private void GenerateNewTerrain()
     {
-        IsPressed = true;   
+        //IsPressed = true;   
         GameObject SecondTerrain = Instantiate<GameObject>(Terrains[1]);
         SecondTerrain.transform.position = Terrains[0].transform.position + Terrains[0].transform.forward * SpaceZ;
         ChangeTagsOnChildTerrains(SecondTerrain);
@@ -48,10 +55,8 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
         for (int i = 0; i < AmountOfChildsInTerrains - 1; i++)
         {
             int newIndex = Random.Range(0, TerrainTagNames.Count);
-            Debug.Log("new tag name " + TerrainTagNames[newIndex]);
             NewTerrain.transform.GetChild(i).gameObject.tag = TerrainTagNames[newIndex];
             Debug.Log("name " + Terrains[1].transform.GetChild(i).name);
-            Debug.Log("Child num " + i);
         }
     }
 }
