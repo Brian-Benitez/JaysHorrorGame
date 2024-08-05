@@ -16,6 +16,8 @@ public class AnimationController : MonoBehaviour
     void Update()
     {
         bool forwardPressed = Input.GetKey(KeyCode.W);
+        bool leftPressed = Input.GetKey(KeyCode.A);
+        bool rightPressed = Input.GetKey(KeyCode.D);
         if (forwardPressed)
         {
             animator.SetBool("IsForward", true);
@@ -24,5 +26,23 @@ public class AnimationController : MonoBehaviour
         {
             animator.SetBool("IsForward", false);
         }
+        if (leftPressed)
+        {
+            animator.SetBool("IsLeft", true);
+        }
+        if (!leftPressed)
+        {
+            animator.SetBool("IsLeft", false);
+        }
+        if (rightPressed)
+        {
+            animator.SetBool("IsRight", true);
+        }
+        if (!rightPressed)
+        {
+            animator.SetBool("IsRight", false);
+        }
+
+
     }
 }
