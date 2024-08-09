@@ -1,28 +1,26 @@
-using Palmmedia.ReportGenerator.Core;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TerrainDistance : MonoBehaviour
 {
-    public bool IsHalfWayThere = false;
-
-    public TerrainGenerator Terrain;
+    public TerrainGenerator Generator;
 
     private void OnTriggerEnter(Collider collision)
     {
         Check(collision);//rename and clean..
     }
-
+    //this need more work...
     public void Check(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        { 
-            IsHalfWayThere = true;
-            Terrain.GenerateNewTerrain();
-            Debug.Log("spawn new terrain...");
+        {
+           Generator.GenerateNewTerrain();
         }
         else
-            IsHalfWayThere = false;
+        {
+            Debug.Log("Do not generate new terrain");
+        }
     }
 }

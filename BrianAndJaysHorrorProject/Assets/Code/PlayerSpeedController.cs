@@ -52,14 +52,14 @@ public class PlayerSpeedController : MonoBehaviour
     /// </summary>
     private void CheckTerrainAngles()
     {
-        Debug.Log("look " + Generator.Terrains[0].transform.rotation.eulerAngles.x);
-        if (Generator.Terrains[0].transform.rotation.eulerAngles.x == FlatSlope)
+        Debug.Log("look " + Generator.TerrainChunks[0].transform.rotation.eulerAngles.x);
+        if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x == FlatSlope)
             Debug.Log("Skibiibi");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= EasySlope && Generator.Terrains[0].transform.rotation.eulerAngles.x < IntermidSlope)
+        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= EasySlope && Generator.TerrainChunks[0].transform.rotation.eulerAngles.x < IntermidSlope)
             Debug.Log("HAHAHA");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= IntermidSlope && Generator.Terrains[0].transform.rotation.eulerAngles.x < HardSlope)
+        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= IntermidSlope && Generator.TerrainChunks[0].transform.rotation.eulerAngles.x < HardSlope)
             Debug.Log("offf");
-        else if (Generator.Terrains[0].transform.rotation.eulerAngles.x >= HardSlope)
+        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= HardSlope)
             Debug.Log("oh no");
     }
 }
