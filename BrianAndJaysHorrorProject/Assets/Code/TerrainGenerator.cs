@@ -22,11 +22,11 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     /// 
     /// Instantiate a new terrain chunk, add it to the list of terrains, then move it to posistion. 
     /// </summary>
-    public void GenerateNewTerrain()
+    public void GenerateNewTerrain(Transform SpawnTerrainPoint)
     {
         GameObject SecondTerrain = Instantiate<GameObject>(TerrainChunks[0]);
-        TerrainChunks.Add(SecondTerrain);
-        SecondTerrain.transform.position = TerrainChunks[0].transform.position + TerrainChunks[0].transform.forward * SpaceZ;
+        TerrainChunks.Add(SecondTerrain);// need to also delete it later when im not on the platform.
+        TerrainChunks[1].transform.position = SpawnTerrainPoint.transform.position;// need to make this go through the list of chunks
         ChangeTagsOnChildTerrains(SecondTerrain);
         Debug.Log("spawn new terrain");
     }

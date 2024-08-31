@@ -6,6 +6,7 @@ using UnityEngine;
 public class TerrainDistance : MonoBehaviour
 {
     public TerrainGenerator Generator;
+    public Transform TerrainSpawnPoint;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -16,7 +17,7 @@ public class TerrainDistance : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           Generator.GenerateNewTerrain();
+           Generator.GenerateNewTerrain(TerrainSpawnPoint);
         }
         else
         {
