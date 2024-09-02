@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4077305257880166078}
   m_Layer: 3
-  m_Name: GameObject
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Generator: {fileID: 0}
-  TerrainSpawnPoint: {fileID: 0}
+  TerrainSpawnPoint: {fileID: 4077305257880166078}
 --- !u!1 &8583653635755124746
 GameObject:
   m_ObjectHideFlags: 0
