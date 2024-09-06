@@ -10,6 +10,9 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [Header("Numbers")]
     public int AmountOfChildsInTerrains = 3;
     public int MaxAmountOfChunks;
+    public int MaxTerrainPlacement;
+    public int TerrainIndex;
+    public float SpaceZ = 2.0f;
 
     [Header("Strings for tags")]
     [SerializeField]
@@ -20,14 +23,14 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     /// </summary>
     public void GenerateNewTerrain(Transform SpawnTerrainPoint)
     {
-        for (int i = 0; i < TerrainChunks.Count; i++)
+        for (int i = 0; i < MaxTerrainPlacement; i++)
         {
             GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);
             TerrainChunks.Add(NewTerrain);// need to also delete it later when im not on the platform.
-            TerrainChunks[i].transform.position = SpawnTerrainPoint.transform.position;// need to make this go through the list of chunks
+            NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
             ChangeTagsOnChildTerrains(NewTerrain);
             Debug.Log("spawn new terrain");
-            return;//check if this works
+            TerrainIndex++;
         }
     }
 
