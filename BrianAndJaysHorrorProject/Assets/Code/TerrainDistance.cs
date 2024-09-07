@@ -3,25 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TerrainDistance : MonoBehaviour
 {
-    public TerrainGenerator Generator;
-    public Transform TerrainSpawnPoint;
+    public int AmountOfExcutions = 0;
 
     private void OnTriggerEnter(Collider collision)
     {
-        Check(collision);//rename and clean..
+        //CreateChunk(collision);
     }
-    //this need more work...
-    public void Check(Collider other)
+    /// <summary>
+    /// This may not work well if the player walks backwards, but for now ill use it
+    /// </summary>
+    /// <param name="collider"></param>
+    public void CreateChunk(Collider collider)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
-           Generator.GenerateNewTerrain(TerrainSpawnPoint);
+            if (AmountOfExcutions == 0)
+            {
+                FindObjectOfType<TerrainGenerator>().GenerateNewTerrain();//hopfully this isnt slow!
+                AmountOfExcutions++;   
+            }
+            else
+                return;
         }
-        else
-        {
-            Debug.Log("Do not generate new terrain");
-        }
+        else if (!collider.gameObject.CompareTag("Player"))
+            AmountOfExcutions = 0;
     }
 }

@@ -18,15 +18,22 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [SerializeField]
     public List<string> TerrainTagNames = new List<string>();
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+            GenerateNewTerrain();
+    }
+
     /// <summary>
     /// Instantiate a new terrain chunk, add it to the list of terrains, then move it to posistion. 
     /// </summary>
-    public void GenerateNewTerrain(Transform SpawnTerrainPoint)
+    public void GenerateNewTerrain()
     {
+        Debug.Log("called");
         for (int i = 0; i < MaxTerrainPlacement; i++)
         {
-            GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);
-            TerrainChunks.Add(NewTerrain);// need to also delete it later when im not on the platform.
+            GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);//change this into a prefab
+            TerrainChunks.Add(NewTerrain);
             NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
             ChangeTagsOnChildTerrains(NewTerrain);
             Debug.Log("spawn new terrain");
