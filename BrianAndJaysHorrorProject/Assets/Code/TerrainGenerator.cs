@@ -10,7 +10,8 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [Header("Numbers")]
     public int AmountOfChildsInTerrains = 3;
     public int MaxAmountOfChunks;
-    public int MaxTerrainPlacement;
+    public int MaxAmountOfChunksToDelete;
+    public int AmountOfChunkToPlace;//Make sure these are both and the same^
     public int TerrainIndex;
     public float SpaceZ = 2.0f;
 
@@ -18,27 +19,27 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [SerializeField]
     public List<string> TerrainTagNames = new List<string>();
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.R))
-            GenerateNewTerrain();
-    }
-
     /// <summary>
     /// Instantiate a new terrain chunk, add it to the list of terrains, then move it to posistion. 
     /// </summary>
-    public void GenerateNewTerrain()
+    public void GenerateNewTerrain()//delete chunks within a radius....
     {
         Debug.Log("called");
-        for (int i = 0; i < MaxTerrainPlacement; i++)
+        if (TerrainChunks.Count < MaxAmountOfChunks)
         {
-            GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);//change this into a prefab
-            TerrainChunks.Add(NewTerrain);
-            NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
-            ChangeTagsOnChildTerrains(NewTerrain);
-            Debug.Log("spawn new terrain");
-            TerrainIndex++;
+            for (int i = 0; i < AmountOfChunkToPlace; i++)
+            {
+                GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);//change this into a prefab
+                TerrainChunks.Add(NewTerrain);
+                NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
+                ChangeTagsOnChildTerrains(NewTerrain);
+                Debug.Log("spawn new terrain");
+                TerrainIndex++;
+            }
         }
+        else
+            Debug.Log("do nothing, max count hit.");
+        
     }
 
    /// <summary>
@@ -46,14 +47,14 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
    /// </summary>
     private void DeleteOldChunks()// Look into this again and see how it works..
     {
-        if(TerrainChunks.Count > MaxAmountOfChunks)
+        if(TerrainChunks.Count >= MaxAmountOfChunks)
         {
-            for(int i = 0; i < MaxAmountOfChunks; i++)
+            for(int i = 0; i < MaxAmountOfChunksToDelete; i++)
             {
                 Debug.Log("Deleting chunks of terrain");
                 TerrainChunks[i].gameObject.SetActive(false);
                 TerrainChunks.Remove(TerrainChunks[i]);
-                Destroy(TerrainChunks[i]);//this is kinda expensive but we will see...
+                Destroy(TerrainChunks[i]);
             }
         }
     }

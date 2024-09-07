@@ -6,11 +6,9 @@ using UnityEngine;
 
 public class TerrainDistance : MonoBehaviour
 {
-    public int AmountOfExcutions = 0;
-
     private void OnTriggerEnter(Collider collision)
     {
-        //CreateChunk(collision);
+        CreateChunk(collision);
     }
     /// <summary>
     /// This may not work well if the player walks backwards, but for now ill use it
@@ -20,15 +18,8 @@ public class TerrainDistance : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            if (AmountOfExcutions == 0)
-            {
-                FindObjectOfType<TerrainGenerator>().GenerateNewTerrain();//hopfully this isnt slow!
-                AmountOfExcutions++;   
-            }
-            else
-                return;
+            Debug.Log("a hit");
+            FindObjectOfType<TerrainGenerator>().GenerateNewTerrain();//hopfully this isnt slow!
         }
-        else if (!collider.gameObject.CompareTag("Player"))
-            AmountOfExcutions = 0;
     }
 }
