@@ -19,6 +19,8 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [SerializeField]
     public List<string> TerrainTagNames = new List<string>();
 
+    public ChangeTerrainTextures ChangeTerrainTexturesRef;
+
     /// <summary>
     /// Instantiate a new terrain chunk, add it to the list of terrains, then move it to posistion. 
     /// </summary>
@@ -33,6 +35,7 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
                 TerrainChunks.Add(NewTerrain);
                 NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
                 ChangeTagsOnChildTerrains(NewTerrain);
+                ChangeTerrainTexturesRef.ChangeTexturesOfChunk(NewTerrain);
                 Debug.Log("spawn new terrain");
                 TerrainIndex++;
             }

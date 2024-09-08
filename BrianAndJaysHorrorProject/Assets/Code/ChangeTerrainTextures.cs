@@ -5,21 +5,22 @@ using UnityEngine;
 public class ChangeTerrainTextures : MonoBehaviour
 {
     [Header("Textures")]
-    public Texture SlowTexture, FastTexture, NormalTexture;
+    public Material SlowTexture, FastTexture, NormalTexture;
+    
 
     [Header("Scripts")]
     public TerrainGenerator TerrainGeneratorRef;
     public PlayerSpeedController PlayerSpeedControllerRef;
 
-    public Renderer[] Renderer;
     public void ChangeTexturesOfChunk(GameObject chunk)
     {
-        for (int i = 0; i < TerrainGeneratorRef.AmountOfChildsInTerrains; i++)
+        Renderer[] v = chunk.GetComponentsInChildren<Renderer>();
+
+        foreach (Renderer r in v)
         {
-           Renderer[i] = chunk.transform.GetChild(i).GetComponentInChildren<Renderer>();
-           if (chunk.transform.rotation.eulerAngles.x == PlayerSpeedControllerRef.FlatSlope)
-                Renderer[i].material.SetTexture("NormalTexture" , NormalTexture);
-           //Add more here.
+            if (chunk.transform.rotation.eulerAngles.x == PlayerSpeedControllerRef.FlatSlope)
+                r.sharedMaterial = NormalTexture;
+            //Add more here.
         }
     }
 }
