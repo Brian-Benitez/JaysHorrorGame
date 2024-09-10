@@ -4300,9 +4300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9e9ab1d6effba44811ce6d6a5ad75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlowTexture: {fileID: 0}
+  SlowTexture: {fileID: 2100000, guid: 373eedab454df4340a2dc3fefd1588a8, type: 2}
   FastTexture: {fileID: 0}
   NormalTexture: {fileID: 2100000, guid: fc8cb6513c79af84dae98374e8992135, type: 2}
+  AmountOfChilds: 2
   TerrainGeneratorRef: {fileID: 840351667}
   PlayerSpeedControllerRef: {fileID: 1392923261}
 --- !u!43 &2080006575
