@@ -35,7 +35,7 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
                 TerrainChunks.Add(NewTerrain);
                 NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
                 ChangeTagsOnChildTerrains(NewTerrain);
-                ChangeTerrainTexturesRef.ChangeTexturesOfChunk(NewTerrain);
+                ChangeTerrainTexturesRef.ChangeTexturesOfParentChunk(NewTerrain);
                 Debug.Log("spawn new terrain");
                 TerrainIndex++;
             }

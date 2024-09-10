@@ -17,9 +17,8 @@ public class ChangeTerrainTextures : MonoBehaviour
     public TerrainGenerator TerrainGeneratorRef;
     public PlayerSpeedController PlayerSpeedControllerRef;
 
-    public void ChangeTexturesOfChunk(GameObject chunk)
+    public void ChangeTexturesOfParentChunk(GameObject chunk)
     {
-        Renderer[] v = chunk.GetComponentsInChildren<Renderer>();
         Renderer r = chunk.GetComponent<Renderer>();
 
         if (chunk.transform.CompareTag("Ground"))
@@ -27,24 +26,30 @@ public class ChangeTerrainTextures : MonoBehaviour
         else if (chunk.transform.CompareTag("SlowGround"))
             r.material = SlowTexture;
 
+        ChangeChildsTextures(chunk);
+    }
+
+    private void ChangeChildsTextures(GameObject child)//clean this when we know it works..
+    {
+        Renderer[] v = child.GetComponentsInChildren<Renderer>();
 
         for (int i = 0; i < AmountOfChilds; i++)
         {
-            if (chunk.transform.GetChild(i).CompareTag("Ground"))
+            if (child.transform.GetChild(i).CompareTag("Ground"))
             {
                 Debug.Log("this needs ground texture");
-                Debug.Log("Name " + chunk.transform.GetChild(i).name);
-                v[i+1].material = NormalTexture;//added a +1 to the i index because the renderer also takes the parents renderer
+                Debug.Log("Name " + child.transform.GetChild(i).name);
+                v[i + 1].material = NormalTexture;//added a +1 to the i index because the renderer also takes the parents renderer
             }
-                
-            else if (chunk.transform.GetChild(i).CompareTag("SlowGround"))
+
+            else if (child.transform.GetChild(i).CompareTag("SlowGround"))
             {
                 Debug.Log("use slow ground");
-                Debug.Log("Name " + chunk.transform.GetChild(i).name);
-                v[i+1].material = SlowTexture;
+                Debug.Log("Name " + child.transform.GetChild(i).name);
+                v[i + 1].material = SlowTexture;
             }
-              
-            Debug.Log("how many runs " +  i);   
+
+            Debug.Log("how many runs " + i);
         }
     }
 }
