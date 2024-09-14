@@ -19,7 +19,7 @@ public class TerrainDistance : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("a hit");
-            FindObjectOfType<TerrainGenerator>().GenerateNewTerrain();//hopfully this isnt slow!
+            FindObjectOfType<GameManager>().GenerateNewTerrain();//hopfully this isnt slow!
         }
     }
 }

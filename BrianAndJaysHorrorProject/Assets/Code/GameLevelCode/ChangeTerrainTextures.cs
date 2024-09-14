@@ -14,7 +14,7 @@ public class ChangeTerrainTextures : MonoBehaviour
     public int AmountOfChilds = 2;
     
     [Header("Scripts")]
-    public TerrainGenerator TerrainGeneratorRef;
+    public GameManager GameManagerRef;
     public PlayerSpeedController PlayerSpeedControllerRef;
 
     public void ChangeTexturesOfParentChunk(GameObject chunk)

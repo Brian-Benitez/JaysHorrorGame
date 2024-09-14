@@ -26,7 +26,7 @@ public class PlayerSpeedController : MonoBehaviour
     public float HardSlope = 90f;
 
     [Header("Scripts")]
-    public TerrainGenerator Generator;
+    public GameManager Generator;
 
     
     public void OnTriggerEnter(Collider other)

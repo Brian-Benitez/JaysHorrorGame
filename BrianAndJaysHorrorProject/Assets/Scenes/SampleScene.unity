@@ -2239,6 +2239,7 @@ MonoBehaviour:
   - Ground
   - SlowGround
   ChangeTerrainTexturesRef: {fileID: 1948312506}
+  RandomAnglesOfTerrainRef: {fileID: 1669967898}
 --- !u!4 &840351668
 Transform:
   m_ObjectHideFlags: 0
@@ -4355,7 +4356,7 @@ MonoBehaviour:
   FastTexture: {fileID: 0}
   NormalTexture: {fileID: 2100000, guid: fc8cb6513c79af84dae98374e8992135, type: 2}
   AmountOfChilds: 2
-  TerrainGeneratorRef: {fileID: 840351667}
+  GameManagerRef: {fileID: 840351667}
   PlayerSpeedControllerRef: {fileID: 1392923261}
 --- !u!43 &2080006575
 Mesh:

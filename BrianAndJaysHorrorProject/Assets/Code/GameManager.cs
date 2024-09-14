@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME OF THIS CLASS....
+public class GameManager : MonoBehaviour
 {
     [Header("Transforms")]
     public List<GameObject> TerrainChunks;
@@ -18,8 +18,9 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
     [Header("Strings for tags")]
     [SerializeField]
     public List<string> TerrainTagNames = new List<string>();
-
+    [Header("Scrpits")]
     public ChangeTerrainTextures ChangeTerrainTexturesRef;
+    public RandomAnglesOfTerrain RandomAnglesOfTerrainRef;
 
     /// <summary>
     /// Instantiate a new terrain chunk, add it to the list of terrains, then move it to posistion. 
@@ -36,6 +37,7 @@ public class TerrainGenerator : MonoBehaviour//I ALREADY NEED TO CHANGE THE NAME
                 NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
                 ChangeTagsOnChildTerrains(NewTerrain);
                 ChangeTerrainTexturesRef.ChangeTexturesOfParentChunk(NewTerrain);
+                RandomAnglesOfTerrainRef.PickRandomAngleForParent(NewTerrain);
                 Debug.Log("spawn new terrain");
                 TerrainIndex++;
             }
