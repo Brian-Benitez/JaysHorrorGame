@@ -1201,7 +1201,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24398
+  m_Name: pb_Mesh24394
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1845,7 +1845,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24270
+  m_Name: pb_Mesh24266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2918,7 +2918,7 @@ MonoBehaviour:
   RoughSurfaceNormalSpeed: 8
   SmoothSurfaceSlowestSpeed: 6
   FlatSlope: 0
-  EasySlope: 30
+  EasySlope: -30
   IntermidSlope: 60
   HardSlope: 90
   Generator: {fileID: 840351667}
@@ -4304,9 +4304,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RandomAnglesForTerrain:
   - -30
-  - 60
-  - 30
   AmountOfChilds: 2
+  UnitToRise: 18.09
+  PlayerSpeedControllerRef: {fileID: 1392923261}
 --- !u!1 &1948312504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,7 +4363,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24252
+  m_Name: pb_Mesh24248
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
