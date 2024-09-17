@@ -28,7 +28,16 @@ public class PlayerSpeedController : MonoBehaviour
     [Header("Scripts")]
     public GameManager Generator;
 
-    
+    public float MaxRaycastDistance = 2f;
+    public LayerMask Mask;
+
+
+
+    private void FixedUpdate()
+    {
+        SlopeCheck();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         CheckGroundTagAndSet(other);
@@ -39,27 +48,22 @@ public class PlayerSpeedController : MonoBehaviour
     /// <param name="groundCollider"></param>
     private void CheckGroundTagAndSet(Collider groundCollider)
     {
-        CheckTerrainAngles();
-
         if (groundCollider.gameObject.CompareTag("Ground"))
             GetComponent<PlayerController>().Speed = VineSurfaceFastSpeed;
         else if (groundCollider.gameObject.CompareTag("SlowGround"))
             GetComponent<PlayerController>().Speed = SmoothSurfaceSlowestSpeed;
         //^Trying this out, seeing if it will impact performance, if does, just going to ref the script instead of get component.
     }
-    /// <summary>
-    /// This checks on what the angle of the plane is, and to change the players velocity
-    /// </summary>
-    private void CheckTerrainAngles()
+   
+    private void SlopeCheck()
     {
-        Debug.Log("look " + Generator.TerrainChunks[0].transform.rotation.eulerAngles.x);
-        if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x == FlatSlope)
-            Debug.Log("Skibiibi");
-        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= EasySlope && Generator.TerrainChunks[0].transform.rotation.eulerAngles.x < IntermidSlope)
-            Debug.Log("HAHAHA");
-        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= IntermidSlope && Generator.TerrainChunks[0].transform.rotation.eulerAngles.x < HardSlope)
-            Debug.Log("offf");
-        else if (Generator.TerrainChunks[0].transform.rotation.eulerAngles.x >= HardSlope)
-            Debug.Log("oh no");
+        RaycastHit hit;
+       Vector3 FloorMax = new Vector3(0,0);
+        if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.down), out hit, MaxRaycastDistance, Mask))
+        {
+            Debug.Log("ooga");
+            Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.down), Color.red);
+            Debug.Log(Vector3.Angle(hit.normal, Vector3.up) + " look");
+        }
     }
 }
