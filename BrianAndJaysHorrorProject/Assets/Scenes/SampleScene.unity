@@ -153,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13918541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 18.62}
+  m_LocalPosition: {x: 0, y: -5.02, z: 18.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1481,7 +1481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555331550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.2, y: -13.16, z: -228.9}
+  m_LocalPosition: {x: -32.2, y: -18.1, z: -213.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2884,8 +2884,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392923254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -73.63, y: 27.2, z: 139.5}
+  m_LocalRotation: {x: 0, y: -0.9977374, z: 0, w: 0.06723177}
+  m_LocalPosition: {x: -73.63, y: 27.28, z: 139.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2895,7 +2895,7 @@ Transform:
   - {fileID: 6947103434345453063}
   m_Father: {fileID: 555331551}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -172.29, z: 0}
 --- !u!143 &1392923256
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3014,12 +3014,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VineSurfaceFastSpeed: 12
   RoughSurfaceNormalSpeed: 8
-  SmoothSurfaceSlowestSpeed: 6
+  SmoothSurfaceSlowestSpeed: 3
+  EasySurfaceSpeed: 6
+  IntermidSurfaceSpeed: 7
   FlatSlope: 0
-  EasySlope: -30
+  EasySlope: 30
   IntermidSlope: 60
   HardSlope: 90
-  Generator: {fileID: 840351667}
+  PlayerControllerRef: {fileID: 1392923257}
   MaxRaycastDistance: 4
   Mask:
     serializedVersion: 2
@@ -3408,14 +3410,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485309837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 9.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 332792060}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!65 &1485309839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4465,7 +4467,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24248
+  m_Name: pb_Mesh24252
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

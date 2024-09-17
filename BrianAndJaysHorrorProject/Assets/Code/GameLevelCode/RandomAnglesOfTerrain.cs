@@ -39,13 +39,7 @@ public class RandomAnglesOfTerrain : MonoBehaviour
             Vector3 rotateToAdd = new Vector3(newAngle, 0f, 0f);
             gameObject.transform.GetChild(i).Rotate(rotateToAdd);
             Debug.Log("New anglem for child is " + newAngle);
-
-            // need to check the angle so I know what angle and pos i need to put the other child to be in to be lined up
-            if (gameObject.transform.GetChild(i).eulerAngles.x >= PlayerSpeedControllerRef.EasySlope)
-            {
-                gameObject.transform.GetChild(1).position = new Vector3(gameObject.transform.GetChild(1).position.x, UnitToRise, gameObject.transform.GetChild(1).position.z);//RAH IT WORKS
-                Debug.Log("AHHHHHH");
-            }
+           
         }
     }
 }
