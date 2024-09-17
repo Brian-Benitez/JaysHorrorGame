@@ -35,9 +35,8 @@ public class GameManager : MonoBehaviour
                 GameObject NewTerrain = Instantiate<GameObject>(TerrainChunks[0]);//change this into a prefab
                 TerrainChunks.Add(NewTerrain);
                 NewTerrain.transform.position = TerrainChunks[TerrainIndex].transform.position + TerrainChunks[TerrainIndex].transform.forward * SpaceZ;
-                RandomAnglesOfTerrainRef.PickRandomAngleForParent(NewTerrain);
-                ChangeTagsOnChildTerrains(NewTerrain);
-                ChangeTerrainTexturesRef.ChangeTexturesOfParentChunk(NewTerrain);
+                ChangeTagsOnChildTerrains(NewTerrain);//dont need
+                ChangeTerrainTexturesRef.ChangeTexturesOfParentChunk(NewTerrain);//deont need
                 Debug.Log("spawn new terrain");
                 TerrainIndex++;
             }
