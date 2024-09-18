@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class MeshGenerator : MonoBehaviour
@@ -85,6 +86,7 @@ public class MeshGenerator : MonoBehaviour
         Mesh.triangles = Triangles;
         Mesh.colors = Colors;
         Mesh.RecalculateNormals();
+        gameObject.AddComponent<MeshCollider>().sharedMesh = Mesh;
     }
 
     private void OnDrawGizmos()
